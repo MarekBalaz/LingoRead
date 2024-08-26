@@ -1,3 +1,34 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+   <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lingo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="spoken-text" style="text-align: center; margin-bottom: 20px; font-size: 30px">
+    <p>Listening...</p>
+  </div>
+
+  <div class="circle-button" style="margin-top: 80px;">
+    <ion-button fill="solid" shape="round" (click)="onMicButtonClick()">
+      <i class="fa fa-microphone" id="micIcon"></i>
+    </ion-button>
+  </div>
+
+  <div class="bottom-buttons">
+    <ion-button fill="solid">
+      English
+    </ion-button>
+    <i class="fa fa-arrow-right" style="margin-top: 12px;"></i>
+    <ion-button fill="solid">
+      Spanish
+    </ion-button>
+  </div>
+</ion-content>
 </ion-app>

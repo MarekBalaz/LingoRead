@@ -1,12 +1,116 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { IonApp, IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Plugins } from '@capacitor/core';
+const { SpeechMutePlugin } = Plugins;
+import { CommonModule } from '@angular/common';
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet],
+  imports: [IonApp, IonRouterOutlet, HttpClientModule, IonHeader, IonToolbar, IonContent,
+     IonButton, IonTitle, IonIcon, CommonModule, IonMenuButton, IonButtons, IonLabel, IonList, IonItem, IonMenu],
 })
-export class AppComponent {
-  constructor() {}
+export class AppComponent /*implements OnInit, OnDestroy*/{
+
+    mute: boolean = false;
+
+    // url = `https://translation.googleapis.com/language/translate/v2?key=AIzaSyDTAKU5BuWq_aeT_KJa2G9yLNlVWQggyMg`;
+    // isMute = false;
+    // recognition: typeof webkitSpeechRecognition;
+    // isSpeechRecognitionActive = false;
+    // isListening = true;
+    // constructor(private http: HttpClient) {}
+    
+    // ngOnInit(){
+    //     this.initializeSpeechRecognition()
+    //     this.recognition.start()
+    // }
+
+    // ngOnDestroy(){
+    //     this.recognition.stop()
+    // }
+
+    // initializeSpeechRecognition(){
+    //     if (!('webkitSpeechRecognition' in window)) {
+    //         console.error("webkitSpeechRecognition is not supported in this browser")
+    //     } else {
+    //         this.recognition = new webkitSpeechRecognition();
+    //         this.recognition.continuous = true;
+    //         this.recognition.lang = "en-US";
+    //         this.recognition.onresult = (event: any) => {
+    //             let final_transcript = '';
+                
+    //             for (let i = event.resultIndex; i < event.results.length; i++) {
+    //                 final_transcript += event.results[i][0].transcript;
+    //             }
+
+    //             console.log(final_transcript)
+
+    //             this.translate(final_transcript)
+                
+    //         };
+    //         this.recognition.onend = () => {
+    //             if(this.isListening) this.recognition.start();
+    //           };
+    //     }
+    // }
+    // changeListeningState(){
+    //     if(this.isListening){
+    //         this.recognition.stop()
+    //         this.isListening = false
+    //     }
+    //     else{
+    //         this.recognition.start()
+    //         this.isListening = true
+    //     }
+        
+    // }
+    // translate(text: string){
+    //     const body = {
+    //         q: text,
+    //         target: "es",
+    //         source: "en"
+    //     };
+    //     this.http.post(this.url, body).subscribe(
+    //         async (response: any) => {
+    //             let translatedText = response.data.translations[0].translatedText;
+    //             this.TTS(translatedText)
+    //         },
+    //         (error) => {
+    //             console.error('Error translating text:', error);
+    //         }
+    //     );
+    // }
+    // async TTS(text: string, lang: string = 'es-ES', rate: number = 1.0, pitch: number = 1.0): Promise<void> {
+    //     try {
+    //       await TextToSpeech.speak({
+    //         text: text,
+    //         lang: lang,
+    //         rate: rate,
+    //         pitch: pitch,
+    //         volume: 1.0,
+    //         category: 'ambient'
+    //       });
+    //     } catch (error) {
+    //       console.error('Error in TextToSpeech:', error);
+    //     }
+    // }
+
+    onMicButtonClick(){
+      let mic = document.getElementById("micIcon");
+        if(this.mute){
+          SpeechMutePlugin['muteInJava']();
+          mic?.classList.add("fa-microphone-slash")
+          mic?.classList.remove("fa-microphone")
+          this.mute = false;
+        }
+        else{
+          SpeechMutePlugin['unmuteInJava']();
+          mic?.classList.add("fa-microphone")
+          mic?.classList.remove("fa-microphone-slash")
+          this.mute = true;
+        }
+    }
 }
