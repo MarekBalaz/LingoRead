@@ -3,8 +3,10 @@ package com.translatorApp.app;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -14,10 +16,14 @@ import android.speech.SpeechRecognizer;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.speech.tts.Voice;
 import android.util.Log;
+import android.widget.RemoteViews;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -125,20 +131,63 @@ public class SpeechRecognitionService extends Service implements OnInitListener 
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//      switch (intent.getAction()){
-//        case "STOP": stopSelf();
-//        break;
-//        case "START": start();
-//        break;
-//      }
-      start();
+      Log.e("ACTION", intent.getAction());
+      if(intent != null && intent.getAction() != null && intent.getAction().equals("MUTE_ACTION")) {
+        mute();
+      }
+      else if (intent != null && intent.getAction() != null && intent.getAction().equals("UNMUTE_ACTION")){
+        unmute();
+      }
+      else{
+        start();
+      }
+
       return super.onStartCommand(intent, flags, startId);
     }
     private void start(){
+//      RemoteViews notificationLayout = new RemoteViews(getPackageName(), R.layout.custom_notification);
+//
+//      // Set initial icon and background color
+//      notificationLayout.setImageViewResource(R.id.micButton, isMute ? R.drawable.baseline_mic_off_24 : R.drawable.baseline_mic_24);
+//      notificationLayout.setInt(R.id.micButton, "setColorFilter", ContextCompat.getColor(this, com.getcapacitor.android.R.color.colorPrimary));
+//
+//      notificationLayout.setImageViewResource(R.id.notificationIcon, R.mipmap.logo_notif_round);
+//      notificationLayout.setTextViewText(R.id.notificationText, "Listening");
+//
+//      // Intent for button click
+//      Intent toggleIntent = new Intent(this, SpeechRecognitionService.class);
+//      toggleIntent.setAction("MUTE_ACTION");
+//      PendingIntent pendingToggleIntent = PendingIntent.getService(this, 0, toggleIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+//      notificationLayout.setOnClickPendingIntent(R.id.micButton, pendingToggleIntent);
+//
+//      Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+//        .setSmallIcon(R.mipmap.logo_notif_round)
+//        .setCustomContentView(notificationLayout)
+//        .setPriority(NotificationCompat.PRIORITY_HIGH)
+//        .build();
+      Intent muteIntent = new Intent(this, SpeechRecognitionService.class);
+      muteIntent.setAction("MUTE_ACTION");
+
+      PendingIntent mutePendingIntent = PendingIntent.getService(
+        this, 0, muteIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+      );
+
+      Intent unmuteIntent = new Intent(this, SpeechRecognitionService.class);
+      unmuteIntent.setAction("UNMUTE_ACTION");
+
+      PendingIntent unmutePendingIntent = PendingIntent.getService(
+        this, 0, unmuteIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+      );
+
       Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-        .setContentTitle("Speech Recognition Service")
-        .setContentText("Listening for speech in the background")
-        .setSmallIcon(R.drawable.ic_launcher_foreground)
+        .setContentTitle("Lingo")
+        .setContentText("Listening...")
+        .setColor(Color.rgb(23,150,95))
+        .setSmallIcon(R.drawable.baseline_mic_24)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .setOngoing(true)
+        .addAction(R.drawable.baseline_mic_24, "Mute", mutePendingIntent)
+        .addAction(R.drawable.baseline_mic_off_24, "Unmute", unmutePendingIntent)
         .build();
 
       startForeground(1, notification);
@@ -223,10 +272,18 @@ public class SpeechRecognitionService extends Service implements OnInitListener 
       textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
     }
     public void mute(){
-      speechRecognizer.stopListening();
+      if(isListening){
+        speechRecognizer.stopListening();
+        isListening = false;
+      }
     }
     public void unmute(){
-      speechRecognizer.startListening(recognizerIntent);
+      Log.e("Listen", "Unmuting: " + isListening);
+      if(!isListening){
+        speechRecognizer.startListening(recognizerIntent);
+        isListening = true;
+        Log.e("Listen", "Unmuted");
+      }
     }
 }
 

@@ -16,6 +16,7 @@ public class MainActivity extends BridgeActivity {
 
   private SpeechRecognitionService service;
   private boolean bound = false;
+  private Intent serviceIntent;
 
   private ServiceConnection connection = new ServiceConnection() {
 
@@ -40,11 +41,16 @@ public class MainActivity extends BridgeActivity {
                     new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.POST_NOTIFICATIONS},
                     0);
 
-        Intent serviceIntent = new Intent(this, SpeechRecognitionService.class);
+        serviceIntent = new Intent(this, SpeechRecognitionService.class);
         serviceIntent.setAction("START");
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         startForegroundService(serviceIntent);
       }
+    }
+    @Override
+    public void onDestroy(){
+      super.onDestroy();
+      stopService(serviceIntent);
     }
     public void muteSpeechReco(){
       if(bound){

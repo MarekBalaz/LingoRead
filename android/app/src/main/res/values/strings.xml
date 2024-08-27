@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">translatorApp</string>
-    <string name="title_activity_main">translatorApp</string>
+    <string name="app_name">Lingo</string>
+    <string name="title_activity_main">Lingo</string>
     <string name="package_name">com.translatorApp.app</string>
     <string name="custom_url_scheme">com.translatorApp.app</string>
+  <string name="image_desc">Lingo</string>
 </resources>

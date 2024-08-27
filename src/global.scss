@@ -40,6 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  --background: #17965f;
   height: 50vh; /* Adjust height as needed */
 }
 
@@ -48,6 +49,7 @@
   height: 80px;
   --border-radius: 50%;
   font-size: 2rem;
+  --background: #17965f;
 }
 
 .bottom-buttons {
@@ -58,10 +60,12 @@
   display: flex;
   justify-content: space-around;
   padding: 0 20px;
+  --background: #17965f;
 }
 
 .bottom-buttons ion-button {
   width: 48%;
+  --background: #17965f;
 }
 
   
