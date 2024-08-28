@@ -2,7 +2,9 @@
    <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+      <ion-button>
+        <i class="fa fa-bars"></i>
+      </ion-button>
     </ion-buttons>
     <ion-title>
       Lingo
@@ -17,7 +19,7 @@
 
   <div class="circle-button" style="margin-top: 80px;">
     <ion-button fill="solid" shape="round" (click)="onMicButtonClick()">
-      <i class="fa fa-microphone" id="micIcon"></i>
+      <i class="fa fa-microphone" id="micIcon" style="color: white;"></i>
     </ion-button>
   </div>
 
@@ -25,7 +27,7 @@
     <ion-button fill="solid">
       English
     </ion-button>
-    <i class="fa fa-arrow-right" style="margin-top: 12px;"></i>
+    <i class="fa fa-arrow-right" style="margin-top: 12px; margin-right: 20px; margin-left: 20px;"></i>
     <ion-button fill="solid">
       Spanish
     </ion-button>

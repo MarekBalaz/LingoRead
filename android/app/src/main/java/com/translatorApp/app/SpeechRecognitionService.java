@@ -181,7 +181,7 @@ public class SpeechRecognitionService extends Service implements OnInitListener 
 
       Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
         .setContentTitle("Lingo")
-        .setContentText("Listening...")
+        .setContentText("Translating from English to Spanish...")
         .setColor(Color.rgb(23,150,95))
         .setSmallIcon(R.drawable.baseline_mic_24)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
