@@ -37,11 +37,8 @@
 @import '@ionic/angular/css/palettes/dark.system.css';
 
 .circle-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   --background: #17965f;
-  height: 50vh; /* Adjust height as needed */
+  height: 40vh; /* Adjust height as needed */
 }
 
 .circle-button ion-button {
@@ -53,18 +50,17 @@
 }
 
 .bottom-buttons {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
   padding: 0 20px;
   --background: #17965f;
+  height: 40vh;
 }
 
 .bottom-buttons ion-button {
   width: 48%;
+  --background: #17965f;
+  --color: white;
+}
+.custom-button{
   --background: #17965f;
   --color: white;
 }
