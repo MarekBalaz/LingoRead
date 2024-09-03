@@ -36,6 +36,27 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
+*{
+  font-family: monospace;
+  font-weight: 100;
+}
+
+.clickable-card {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+  
+  &:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to give a lift effect */
+  }
+
+  &:active {
+    transform: scale(0.98); /* Slightly shrink the card on click for a press effect */
+  }
+}
+
 .circle-button {
   --background: #17965f;
   height: 40vh; /* Adjust height as needed */
@@ -63,4 +84,18 @@
 .custom-button{
   --background: #17965f;
   --color: white;
+}
+.clickable-icon {
+  font-size: 24px; /* Size of the icon */
+  transition: transform 0.2s ease; /* Smooth transition for the icon scaling */
+  display: inline-block;
+  margin-top: 10px; /* Optional: adjust spacing as needed */
+
+  &:hover {
+    transform: scale(1.2); /* Enlarge the icon on hover */
+  }
+
+  &:active {
+    transform: scale(0.9); /* Shrink the icon on click */
+  }
 }

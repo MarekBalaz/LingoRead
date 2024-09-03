@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -7,10 +8,14 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule]
 })
-export class HomeComponent  implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  onCardClick(card: String) {
+    setTimeout(() => {
+      this.router.navigate([card]);
+    }, 150)
+  }
 
 }
