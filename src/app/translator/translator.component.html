@@ -1,31 +1,28 @@
 <ion-app>
-  <ion-content class="ion-padding">
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="1" class="d-flex justify-content-center align-items-center">
-        <a href="/home" class="text-white">
+  <ion-grid class="m-2">
+    <ion-row class="m-1">
+      <ion-col size="2" class="d-flex justify-content-center align-items-center">
+        <a href="/home" class="fs-3">
           <i class="fa fa-arrow-left"></i>
         </a>
       </ion-col>
-      <ion-col size="10">
-        <ion-item>
-          <ion-label>Word group</ion-label>
-          <ion-select>
-            <ion-select-option value="apple">Book 1</ion-select-option>
-            <ion-select-option value="banana">Book 2</ion-select-option>
-            <ion-select-option value="orange">Book 3</ion-select-option>
+      <ion-col size="8" class="d-flex justify-content-center align-items-center">
+        <ion-item class="rounded">
+          <ion-select aria-label="Word group" placeholder="Select Word Group">
+            <ion-select-option value="apple">English</ion-select-option>
+            <ion-select-option value="banana">Spanish</ion-select-option>
+            <ion-select-option value="orange">Italian</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col size="1" class="d-flex justify-content-center align-items-center">
-        <ion-button fill="solid" class="custom-button">
+      <ion-col size="2" class="d-flex justify-content-center align-items-center">
+        <ion-button shape="round">
           <i class="fa fa-plus"></i>
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class="circle-button d-flex justify-content-center align-items-end">
+  <div class="d-flex justify-content-center align-items-end">
     <ion-button fill="solid" shape="round" (click)="onMicButtonClick()">
       <i class="fa fa-microphone" id="micIcon"></i>
     </ion-button>
@@ -50,5 +47,4 @@
       </ion-row>
     </ion-grid>
   </div>
-  </ion-content>
 </ion-app>
