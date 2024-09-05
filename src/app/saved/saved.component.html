@@ -1,0 +1,75 @@
+<ion-app>
+  <ion-content>
+  <div>
+    <ion-grid>
+      <ion-row class="mt-4 d-flex align-items-center">
+        <ion-col size="12" class="d-flex justify-content-start ps-4">
+          <h2 (click)="onCardClick('/home')">
+            <i class="fa fa-arrow-left clickable-icon"></i>
+          </h2>
+          <h2 class="ms-4">Saved Words</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row class="px-2">
+        <ion-col size="12">
+          <ion-searchbar placeholder="Search For Groups" class="rounded">
+          </ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row class="pb-1 mb-0 mt-2 ps-4">
+        <ion-col size="12" class="pb-0">
+          <h3 class="fs-4 mb-0">Groups</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-list class="m-3 rounded mt-0">
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="8" class="groupListItem d-flex justify-content-start align-items-center">
+                    <ion-label class="flex-grow-1">Spanish</ion-label>
+                  </ion-col>
+                  <ion-col size="4" class="groupListItem d-flex justify-content-end align-items-center p-0">
+                    <h2 (click)="onCardClick('/detail')" class="m-0">
+                      <i class="fa fa-chevron-right clickable-icon" style="font-size: 70%"></i>
+                    </h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="8" class="groupListItem d-flex justify-content-start align-items-center">
+                    <ion-label class="flex-grow-1">English</ion-label>
+                  </ion-col>
+                  <ion-col size="4" class="groupListItem d-flex justify-content-end align-items-center p-0">
+                    <h2 (click)="onCardClick('/detail')" class="m-0">
+                      <i class="fa fa-chevron-right clickable-icon" style="font-size: 70%"></i>
+                    </h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="8" class="groupListItem d-flex justify-content-start align-items-center">
+                    <ion-label class="flex-grow-1">French</ion-label>
+                  </ion-col>
+                  <ion-col size="4" class="groupListItem d-flex justify-content-end align-items-center p-0">
+                    <h2 (click)="onCardClick('/detail')" class="m-0">
+                      <i class="fa fa-chevron-right clickable-icon" style="font-size: 70%"></i>
+                    </h2>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  </ion-content>
+</ion-app>

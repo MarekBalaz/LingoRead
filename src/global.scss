@@ -40,13 +40,20 @@
   font-family: monospace;
   font-weight: 100;
 }
-
+.groupListItem{
+  font-size: 100%;
+}
 .row{
   height: 30vh;
 }
 .micButton{
-  width: 9vh;
-  height: 9vh;
+  width: 12vh;
+  height: 12vh;
+}
+
+.plusButton{
+  width: 5vh;
+  height: 5vh;
 }
 .clickable-card {
   cursor: pointer; /* Change cursor to pointer on hover */
@@ -96,7 +103,6 @@
   font-size: 24px; /* Size of the icon */
   transition: transform 0.2s ease; /* Smooth transition for the icon scaling */
   display: inline-block;
-  margin-top: 10px; /* Optional: adjust spacing as needed */
 
   &:hover {
     transform: scale(1.2); /* Enlarge the icon on hover */

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import { IonicModule } from '@ionic/angular';
 import { IonRouterLink } from '@ionic/angular/standalone';
@@ -14,7 +15,17 @@ declare var webkitSpeechRecognition: any;
 })
 export class TranslatorComponent{
 
+  constructor(private router: Router){
+
+  }
+
   mute: boolean = false;
+
+  onCardClick(card: String) {
+    setTimeout(() => {
+      this.router.navigate([card]);
+    }, 120)
+  }
 
     // url = `https://translation.googleapis.com/language/translate/v2?key=AIzaSyDTAKU5BuWq_aeT_KJa2G9yLNlVWQggyMg`;
     // isMute = false;

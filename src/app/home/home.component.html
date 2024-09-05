@@ -1,13 +1,13 @@
 <ion-app>
+  <ion-content>
   <div>
     <ion-grid>
       <ion-row class="m-4">
         <ion-col size="6" class="d-flex align-items-center">
-          <!-- <h2>Home</h2> -->
           <img src="assets/bg-images/logo.png" alt="Logo">
         </ion-col>
         <ion-col size="6" class="d-flex justify-content-end align-items-center">
-          <h2 (click)="onCardClick('/account')">
+          <h2 (click)="onCardClick('/account')" class="pt-2">
             <i class="fa fa-user clickable-icon"></i>
           </h2>
         </ion-col>
@@ -50,4 +50,5 @@
       </ion-row>
     </ion-grid>
   </div>
+  </ion-content>
 </ion-app>

@@ -1,10 +1,11 @@
 <ion-app>
+  <ion-content scroll-y="false">
   <ion-grid class="m-2">
     <ion-row class="m-1 row">
       <ion-col size="2" class="d-flex justify-content-center align-items-start">
-        <a href="/home" class="fs-3 mt-1">
-          <i class="fa fa-arrow-left"></i>
-        </a>
+        <h2 (click)="onCardClick('/home')" class="pt-2">
+          <i class="fa fa-arrow-left clickable-icon"></i>
+        </h2>
       </ion-col>
       <ion-col size="8" class="d-flex justify-content-center align-items-start">
         <ion-item class="rounded">
@@ -15,8 +16,8 @@
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col size="2" class="d-flex justify-content-center align-items-start">
-        <ion-button shape="round">
+      <ion-col size="2" class="d-flex align-items-start p-0">
+        <ion-button fill="solid" shape="round" class="plusButton">
           <i class="fa fa-plus"></i>
         </ion-button>
       </ion-col>
@@ -24,11 +25,11 @@
     <ion-row class="row">
       <ion-col size="12" class="d-flex justify-content-center align-items-center">
           <ion-button fill="solid" shape="round" class="micButton" (click)="onMicButtonClick()">
-            <i class="fs-3 fa fa-microphone" id="micIcon"></i>
+            <i class="fs-1 fa fa-microphone" id="micIcon"></i>
           </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row class="row">
+    <ion-row class="row pb-3">
       <ion-col size="5" class="d-flex justify-content-end align-items-end">
         <ion-button fill="solid">
           English
@@ -44,4 +45,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  </ion-content>
 </ion-app>

@@ -3,6 +3,8 @@ import {AccountComponent} from "./account/account.component";
 import { TabsComponent } from './tabs/tabs.component';
 import { HomeComponent } from './home/home.component';
 import { TranslatorComponent } from './translator/translator.component';
+import { SavedComponent } from './saved/saved.component';
+import { GroupDetailComponent } from './group-detail/group-detail.component';
 // import { HomeComponent } from './home/home.component';
 // import { AccountComponent } from './account/account.component';
 // import { TranslatorComponent } from './translator/translator.component';
@@ -24,6 +26,14 @@ export const routes: Routes = [
             {
                 component: TranslatorComponent,
                 path: "translator"
+            },
+            {
+                component: SavedComponent,
+                path: "saved"
+            },
+            {
+                component: GroupDetailComponent,
+                path: "detail"
             },
             {
                 component: HomeComponent,
