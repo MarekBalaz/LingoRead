@@ -1,12 +1,12 @@
 <ion-app>
   <ion-grid class="m-2">
-    <ion-row class="m-1">
-      <ion-col size="2" class="d-flex justify-content-center align-items-center">
-        <a href="/home" class="fs-3">
+    <ion-row class="m-1 row">
+      <ion-col size="2" class="d-flex justify-content-center align-items-start">
+        <a href="/home" class="fs-3 mt-1">
           <i class="fa fa-arrow-left"></i>
         </a>
       </ion-col>
-      <ion-col size="8" class="d-flex justify-content-center align-items-center">
+      <ion-col size="8" class="d-flex justify-content-center align-items-start">
         <ion-item class="rounded">
           <ion-select aria-label="Word group" placeholder="Select Word Group">
             <ion-select-option value="apple">English</ion-select-option>
@@ -15,36 +15,33 @@
           </ion-select>
         </ion-item>
       </ion-col>
-      <ion-col size="2" class="d-flex justify-content-center align-items-center">
+      <ion-col size="2" class="d-flex justify-content-center align-items-start">
         <ion-button shape="round">
           <i class="fa fa-plus"></i>
         </ion-button>
       </ion-col>
     </ion-row>
+    <ion-row class="row">
+      <ion-col size="12" class="d-flex justify-content-center align-items-center">
+          <ion-button fill="solid" shape="round" class="micButton" (click)="onMicButtonClick()">
+            <i class="fs-3 fa fa-microphone" id="micIcon"></i>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col size="5" class="d-flex justify-content-end align-items-end">
+        <ion-button fill="solid">
+          English
+        </ion-button>
+      </ion-col>
+      <ion-col size="2" class="fs-2 d-flex justify-content-center align-items-end">
+        <i class="fa fa-arrow-right mb-3"></i>
+      </ion-col>
+      <ion-col size="5" class="d-flex justify-content-start align-items-end">
+        <ion-button fill="solid">
+          Spanish
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-  <div class="d-flex justify-content-center align-items-end">
-    <ion-button fill="solid" shape="round" (click)="onMicButtonClick()">
-      <i class="fa fa-microphone" id="micIcon"></i>
-    </ion-button>
-  </div>
-
-  <div class="bottom-buttons d-flex align-items-end">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="5" class="d-flex justify-content-end">
-          <ion-button fill="solid">
-            English
-          </ion-button>
-        </ion-col>
-        <ion-col size="2" class="d-flex justify-content-center mt-2">
-          <i class="fa fa-arrow-right"></i>
-        </ion-col>
-        <ion-col size="5" class="d-flex justify-content-start">
-          <ion-button fill="solid">
-            Spanish
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
 </ion-app>

@@ -41,12 +41,19 @@
   font-weight: 100;
 }
 
+.row{
+  height: 30vh;
+}
+.micButton{
+  width: 9vh;
+  height: 9vh;
+}
 .clickable-card {
   cursor: pointer; /* Change cursor to pointer on hover */
   background-attachment: fixed;
   background-size: 100% 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
-  
+
   &:hover {
     transform: scale(1.05); /* Slightly enlarge the card on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to give a lift effect */
