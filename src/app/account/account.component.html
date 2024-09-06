@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-content>
+  <ion-content scroll-y="false" style="--background: #141414;">
   <div>
     <ion-grid>
       <ion-row class="mt-4 d-flex align-items-center">
@@ -27,46 +27,25 @@
       <ion-row>
         <ion-col size="12">
           <ion-list class="m-3 rounded">
-            <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col size="4" class="fs-5 d-flex justify-content-start align-items-center">
-                    <i class="fa fa-money me-2 fs-4"></i>
-                    <ion-label class="flex-grow-1">Subscription</ion-label>
-                  </ion-col>
-                  <ion-col size="8" class="fs-5 d-flex justify-content-end align-items-center">
-                    <i class="fa fa-chevron-right"></i>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+            <ion-item style="--background: #1c1c1d;">
+              <i class="fa fa-money me-2"></i>
+              <ion-label>Subscription</ion-label>
+              <i class="fa fa-chevron-right"></i>
             </ion-item>
-            <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col size="4" class="fs-5 d-flex justify-content-start align-items-center">
-                    <i class="fa fa-lock me-2"></i>
-                    <ion-label class="flex-grow-1">Privacy</ion-label>
-                  </ion-col>
-                  <ion-col size="8" class="fs-5 d-flex justify-content-end align-items-center">
-                    <i class="fa fa-chevron-right"></i>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+          
+            <ion-item style="--background: #1c1c1d;">
+              <i class="fa fa-lock me-2"></i>
+              <ion-label>Privacy</ion-label>
+              <i class="fa fa-chevron-right"></i>
             </ion-item>
-            <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col size="4" class="fs-5 d-flex justify-content-start align-items-center">
-                    <i class="fa fa-info me-2"></i>
-                    <ion-label class="flex-grow-1">Help</ion-label>
-                  </ion-col>
-                  <ion-col size="8" class="fs-5 d-flex justify-content-end align-items-center">
-                    <i class="fa fa-chevron-right"></i>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+          
+            <ion-item style="--background: #1c1c1d; --inner-border-width: 0px">
+              <i class="fa fa-info me-2"></i>
+              <ion-label>Help</ion-label>
+              <i class="fa fa-chevron-right"></i>
             </ion-item>
           </ion-list>
+          
         </ion-col>
       </ion-row>
     </ion-grid>

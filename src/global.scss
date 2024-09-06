@@ -133,10 +133,6 @@ ion-modal#word-group-modal, ion-modal#change-language-modal {
   --background: #17965f;
   --color: white;
 }
-// .custom-button{
-//   --background: #17965f;
-//   --color: white;
-// }
 .clickable-icon {
   font-size: 24px; /* Size of the icon */
   transition: transform 0.2s ease; /* Smooth transition for the icon scaling */
@@ -156,6 +152,57 @@ ion-modal#word-group-modal, ion-modal#change-language-modal {
 
 
   &:active {
-    transform: scale(0.9); /* Shrink the icon on click */
+    transform: scale(0.9);
   }
+}
+
+ion-content, ion-app{
+  background-color: #17965f;
+}
+
+ion-button{
+  --background: #17965f;
+  --color: white
+}
+i{
+  color: white;
+}
+ion-tab-button{
+  --color-selected: #17965f;
+}
+.fa-chevron-right{
+  color: grey;
+}
+/* Flexbox layout for positioning items */
+.custom-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Left and Right Section Layout */
+.left-section{
+  display: flex;
+  flex-direction: column;  /* Stack small word above the main word */
+  align-items: flex-start;
+  flex: 1;
+}
+
+.right-section{
+  display: flex;
+  flex-direction: column;  /* Stack small word above the main word */
+  align-items: flex-end;
+  flex: 1;
+}
+
+.middle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0; /* Do not grow */
+}
+
+/* Style for the small word */
+.small-text {
+  font-size: 12px;
+  color: gray;  /* Lighter color for the small text */
 }
