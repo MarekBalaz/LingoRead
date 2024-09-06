@@ -17,7 +17,7 @@
         </ion-item>
       </ion-col>
       <ion-col size="2" class="d-flex align-items-start p-0">
-        <ion-button fill="solid" shape="round" class="plusButton">
+        <ion-button fill="solid" shape="round" id="open-custom-dialog" expand="block" class="plusButton">
           <i class="fa fa-plus"></i>
         </ion-button>
       </ion-col>
@@ -45,5 +45,19 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+    <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+      <ng-template>
+        <div class="wrapper">
+          <div class="content">
+            <h1>Add Word Group</h1>
+            <ion-input label="Group name" label-placement="floating" fill="solid" placeholder="Enter text" class="input-full-width"></ion-input>
+            <ion-buttons class="button-group">
+              <ion-button expand="block" fill="solid" color="primary" class="half-button">Cancel</ion-button>
+              <ion-button expand="block" fill="solid" color="primary" class="half-button">Add</ion-button>
+            </ion-buttons>
+          </div>
+        </div>
+      </ng-template>
+    </ion-modal>
   </ion-content>
 </ion-app>

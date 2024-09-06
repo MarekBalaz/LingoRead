@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Enter Item</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input [(ngModel)]="itemName" placeholder="Enter group name"></ion-input>
+  </ion-item>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="addItem()">Add</ion-button>
+  </ion-footer>
+</ion-content>

@@ -40,6 +40,44 @@
   font-family: monospace;
   font-weight: 100;
 }
+ion-modal#example-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px; /* Adds some padding */
+}
+
+.content {
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  width: 100%;
+  max-width: 400px; /* Max width for smaller screens */
+  //text-align: center;
+}
+
+.input-full-width {
+  width: 100%; /* Input takes up full width */
+  margin: 20px 0; /* Margin for spacing */
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Spacing between buttons */
+}
+
+.half-button {
+  width: 48%; /* Each button takes 50% minus a little space between them */
+  margin: 10px 0; /* Optional margin between rows */
+}
+
 .groupListItem{
   font-size: 100%;
 }

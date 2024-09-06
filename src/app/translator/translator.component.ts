@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
-import { IonicModule } from '@ionic/angular';
+import {IonicModule, ModalController} from '@ionic/angular';
 import { IonRouterLink } from '@ionic/angular/standalone';
+import {AddGroupModalComponent} from "../add-group-modal/add-group-modal.component";
 const { SpeechMutePlugin } = Plugins;
 declare var webkitSpeechRecognition: any;
 
@@ -15,11 +16,28 @@ declare var webkitSpeechRecognition: any;
 })
 export class TranslatorComponent{
 
-  constructor(private router: Router){
+  constructor(private router: Router, private modalCtrl: ModalController){
 
   }
 
   mute: boolean = false;
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddGroupModalComponent,
+      backdropDismiss: false,  // Optional: Prevent dismissing by tapping on the backdrop
+    });
+
+    // Handle data from modal when it's dismissed
+    modal.onDidDismiss().then((result) => {
+      if (result.data && result.data.item) {
+        console.log('Item added:', result.data.item);
+        // Do something with the added item
+      }
+    });
+
+    await modal.present();
+  }
 
   onCardClick(card: String) {
     setTimeout(() => {
@@ -33,7 +51,7 @@ export class TranslatorComponent{
     // isSpeechRecognitionActive = false;
     // isListening = true;
     // constructor(private http: HttpClient) {}
-    
+
     // ngOnInit(){
     //     this.initializeSpeechRecognition()
     //     this.recognition.start()
@@ -52,7 +70,7 @@ export class TranslatorComponent{
     //         this.recognition.lang = "en-US";
     //         this.recognition.onresult = (event: any) => {
     //             let final_transcript = '';
-                
+
     //             for (let i = event.resultIndex; i < event.results.length; i++) {
     //                 final_transcript += event.results[i][0].transcript;
     //             }
@@ -60,7 +78,7 @@ export class TranslatorComponent{
     //             console.log(final_transcript)
 
     //             this.translate(final_transcript)
-                
+
     //         };
     //         this.recognition.onend = () => {
     //             if(this.isListening) this.recognition.start();
@@ -76,7 +94,7 @@ export class TranslatorComponent{
     //         this.recognition.start()
     //         this.isListening = true
     //     }
-        
+
     // }
     // translate(text: string){
     //     const body = {
