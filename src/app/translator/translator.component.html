@@ -9,7 +9,7 @@
       </ion-col>
       <ion-col size="8" class="d-flex justify-content-center align-items-start">
         <ion-item class="rounded">
-          <ion-select aria-label="Word group" placeholder="Select Word Group">
+          <ion-select aria-label="Word group" placeholder="Select word group" [interfaceOptions]="wordGroupAlertOptions">
             <ion-select-option value="apple">English</ion-select-option>
             <ion-select-option value="banana">Spanish</ion-select-option>
             <ion-select-option value="orange">Italian</ion-select-option>
@@ -17,21 +17,21 @@
         </ion-item>
       </ion-col>
       <ion-col size="2" class="d-flex align-items-start p-0">
-        <ion-button fill="solid" shape="round" id="open-custom-dialog" expand="block" class="plusButton">
+        <ion-button fill="solid" shape="round" id="add-word-group" expand="block" class="plusButton clickable-button">
           <i class="fa fa-plus"></i>
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row class="row">
       <ion-col size="12" class="d-flex justify-content-center align-items-center">
-          <ion-button fill="solid" shape="round" class="micButton" (click)="onMicButtonClick()">
+          <ion-button fill="solid" shape="round" class="micButton clickable-button" (click)="onMicButtonClick()">
             <i class="fs-1 fa fa-microphone" id="micIcon"></i>
           </ion-button>
       </ion-col>
     </ion-row>
     <ion-row class="row pb-3">
       <ion-col size="5" class="d-flex justify-content-end align-items-end">
-        <ion-button fill="solid">
+        <ion-button fill="solid" id="change-language" class="clickable-button">
           English
         </ion-button>
       </ion-col>
@@ -39,21 +39,53 @@
         <i class="fa fa-arrow-right mb-3"></i>
       </ion-col>
       <ion-col size="5" class="d-flex justify-content-start align-items-end">
-        <ion-button fill="solid">
+        <ion-button fill="solid" class="clickable-button">
           Spanish
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
-    <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+    <ion-modal id="word-group-modal" #modal trigger="add-word-group">
       <ng-template>
         <div class="wrapper">
           <div class="content">
-            <h1>Add Word Group</h1>
-            <ion-input label="Group name" label-placement="floating" fill="solid" placeholder="Enter text" class="input-full-width"></ion-input>
+            <h1>Add word group</h1>
+            <ion-input label="Group name" label-placement="stacked" placeholder="Enter text" clearInput="true" class="input-full-width border-bottom"></ion-input>
             <ion-buttons class="button-group">
               <ion-button expand="block" fill="solid" color="primary" class="half-button">Cancel</ion-button>
               <ion-button expand="block" fill="solid" color="primary" class="half-button">Add</ion-button>
+            </ion-buttons>
+          </div>
+        </div>
+      </ng-template>
+    </ion-modal>
+    <ion-modal id="change-language-modal" #modal trigger="change-language">
+      <ng-template>
+        <div class="wrapper">
+          <div class="content">
+            <h1>Change language</h1>
+            <ion-item class="rounded input-full-width">
+              <ion-select aria-label="Word group" placeholder="Select language" [interfaceOptions]="languagesAlertOptions">
+                <ion-select-option value="apple">English</ion-select-option>
+                <ion-select-option value="banana">Spanish</ion-select-option>
+                <ion-select-option value="orange">Italian</ion-select-option>
+                <ion-select-option value="apple">English</ion-select-option>
+                <ion-select-option value="banana">Spanish</ion-select-option>
+                <ion-select-option value="orange">Italian</ion-select-option>
+                <ion-select-option value="apple">English</ion-select-option>
+                <ion-select-option value="banana">Spanish</ion-select-option>
+                <ion-select-option value="orange">Italian</ion-select-option>
+                <ion-select-option value="apple">English</ion-select-option>
+                <ion-select-option value="banana">Spanish</ion-select-option>
+                <ion-select-option value="orange">Italian</ion-select-option>
+                <ion-select-option value="apple">English</ion-select-option>
+                <ion-select-option value="banana">Spanish</ion-select-option>
+                <ion-select-option value="orange">Italian</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-buttons class="button-group">
+              <ion-button expand="block" fill="solid" color="primary" class="half-button">Cancel</ion-button>
+              <ion-button expand="block" fill="solid" color="primary" class="half-button">Save</ion-button>
             </ion-buttons>
           </div>
         </div>

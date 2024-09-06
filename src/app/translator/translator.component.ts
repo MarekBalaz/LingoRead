@@ -22,6 +22,14 @@ export class TranslatorComponent{
 
   mute: boolean = false;
 
+  languagesAlertOptions: any = {
+    header: 'Languages'
+  };
+
+  wordGroupAlertOptions: any = {
+    header: 'Word groups'
+  };
+
   async openModal() {
     const modal = await this.modalCtrl.create({
       component: AddGroupModalComponent,
